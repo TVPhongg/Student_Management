@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Student_Management.Data.Context;
 using Student_Management.Data.Entities;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,7 @@ builder.Services.AddDbContext<ManagementContext>(
 
 // Add services to the container.
 builder.Services.AddScoped<ManagementContext>();
-
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddIdentity<AppUser, AppRole>()
                 .AddEntityFrameworkStores<ManagementContext>()
                 .AddDefaultTokenProviders();
