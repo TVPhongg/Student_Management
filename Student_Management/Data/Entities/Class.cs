@@ -18,7 +18,7 @@
         /// <summary>
         /// mã khoa
         /// </summary>
-        public int DepartmentId { get; set; }
+
 
         /// <summary>
         /// điều hướng tập hợp đến bảng sinh viên

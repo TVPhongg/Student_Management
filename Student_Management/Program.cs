@@ -1,6 +1,21 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Student_Management.Data.Context;
+using Student_Management.Data.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
+
+//connection string for connect to database
+builder.Services.AddDbContext<ManagementContext>(
+       options => options.UseSqlServer("name=ConnectionStrings:ManagementConn"));
+
 // Add services to the container.
+builder.Services.AddScoped<ManagementContext>();
+
+builder.Services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<ManagementContext>()
+                .AddDefaultTokenProviders();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

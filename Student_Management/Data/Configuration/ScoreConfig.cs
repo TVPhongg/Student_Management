@@ -11,7 +11,7 @@ namespace Student_Management.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<Score> builder)
         {
-            builder.ToTable("Ccore");
+            builder.ToTable("Score");
             builder.HasKey(x => new { x.StudentId, x.SubjectId });
             builder.Property(x => x.ExamTimes).IsRequired();
             builder.Property(x => x.TestScore).IsRequired();
